@@ -3,8 +3,7 @@
 ### Get It
 `docker pull bdclark/composer`
 
-This image installs composer on top of the `bdclark/php` image. If that image
-doesn't have the necessary packages, please let me know.
+This image installs composer on top of the `bdclark/php` image. If that image doesn't have the necessary packages, please let me know.
 
 
 ### Use It
@@ -16,9 +15,7 @@ docker run --rm -it -v $(pwd):/app bdclark/composer install
 ```
 
 ##### Double Scoop:
-Run composer install, map your `.ssh` directory to access
-private git repos, and map a local `.composer` directory to cache packages outside
-the container (and provide for custom config.json / auth.json settings):
+Run composer install, map your `.ssh` directory to access private git repos, and map a local `.composer` directory to cache packages outside the container (and provide for custom config.json / auth.json settings):
 ```
 docker run --rm -it \
   -v $(pwd):/app \
@@ -28,9 +25,7 @@ docker run --rm -it \
 ```
 
 ##### Cherry on Top:
-Add an alias to `~/.bashrc`, `~/.bash_profile`, etc. so you
-can just `composer foo --bar` from your terminal and ignore the fact that docker is
-doing the needful for you:
+Add an alias to `~/.bashrc`, `~/.bash_profile`, etc. so you can just `composer foo --bar` from your terminal and ignore the fact that docker is doing the needful for you:
 ```
 alias composer="docker run --rm -it \
   -v $(pwd):/app \
@@ -40,8 +35,7 @@ alias composer="docker run --rm -it \
 ```
 
 ##### Not on OSX?:
-If you're not on OSX (docker-machine, boot2docker, etc.) then permissions
-might be an issue. If so, try this:
+If you're not on OSX (docker-machine, boot2docker, etc.) then permissions might be an issue. If so, try this:
 ```
 docker run --rm -it \
   -v $(pwd):/app \
