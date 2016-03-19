@@ -14,8 +14,7 @@ RUN curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/dow
   && rm /usr/local/bin/gosu.asc \
   && chmod +x /usr/local/bin/gosu
 
-RUN php5dismod xdebug \
-  &&  echo "memory_limit=-1" >> /etc/php5/cli/conf.d/php_additional.ini
+RUN echo "memory_limit=-1" >> /etc/php5/cli/conf.d/php_additional.ini
 
 VOLUME ["/app"]
 WORKDIR /app
