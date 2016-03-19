@@ -18,7 +18,7 @@ docker run --rm -it -v $(pwd):/app bdclark/composer install
 Run composer install, map your `.ssh` directory to access private git repos, and map a local `.composer` directory to cache packages outside the container (and provide for custom config.json / auth.json settings):
 ```
 docker run --rm -it \
-  -v $(pwd):/app \
+  -v \$(pwd):/app \
   -v ~/.composer:/app/.composer \
   -v ~/.ssh:/app/.ssh \
   bdclark/composer install
@@ -28,7 +28,7 @@ docker run --rm -it \
 Add an alias to `~/.bashrc`, `~/.bash_profile`, etc. so you can just `composer foo --bar` from your terminal and ignore the fact that docker is doing the needful for you:
 ```
 alias composer="docker run --rm -it \
-  -v $(pwd):/app \
+  -v \$(pwd):/app \
   -v ~/.composer:/app/.composer \
   -v ~/.ssh:/app/.ssh \
   bdclark/composer"
@@ -38,7 +38,7 @@ alias composer="docker run --rm -it \
 If you're not on OSX (docker-machine, boot2docker, etc.) then permissions might be an issue. If so, try this:
 ```
 docker run --rm -it \
-  -v $(pwd):/app \
+  -v \$(pwd):/app \
   -v ~/.composer:/app/.composer \
   -v ~/.ssh:/app/.ssh \
   -e USER_ID=$(id -u) \
